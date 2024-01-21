@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./vars.css" />
+    <link rel="stylesheet" href="../../public/styles/upload-image.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.css">
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+      <div class="frame-427319726">
+        <div class="group-48096341">
+          <div class="group-11385">
+            <div class="group-11169">
+            <button type="submit">
+              <div class="rectangle-3"></div>
+              <div class="upload">upload</div>
+            </button>
+            </div>
+            <div class="email">
+              <div class="rectangle-6"></div>
+            </div>
+            <div class="password">
+              <div class="rectangle-62"></div>
+            </div>
+          </div>
+          <div class="photo">Photo</div>
+          <div class="name">Name</div>
+        </div>
+        <div class="frame-427319747">
+            <button onclick="showTable()">  
+                <div class="view" >View</div>
+            </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.min.js"></script>
+    <script>
+        function showTable() {
+            window.location.href= '/show-table'
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const input = document.getElementById('image');
+            const cropperContainer = document.getElementById('cropper-container');
+            const croppedDataInput = document.getElementById('cropped-data');
+            const cropBtn = document.getElementById('crop-btn');
+
+            let cropper;
+
+            input.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+
+                if (file) {
+                    if (cropper) {
+                        cropper.destroy();
+                    }
+
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        cropperContainer.innerHTML = '<img src="' + e.target.result + '" alt="Crop Image">';
+                        cropper = new Cropper(cropperContainer.firstChild, {
+                            aspectRatio: 1, 
+                            viewMode: 2,    
+                        });
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            cropBtn.addEventListener('click', function () {
+                const croppedData = cropper.getCroppedCanvas().toDataURL();
+                croppedDataInput.value = croppedData;
+                document.forms[0].submit();
+            });
+        });
+    </script>
+  </body>
+</html>

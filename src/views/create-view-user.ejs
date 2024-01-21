@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../styles/create-view-user.css">
+
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+
+      <div class="frame-427319726">
+        <div class="group-11385">
+          <div class="create-user">Create User</div>
+        <form action="/create-view-user" method="post">
+          <button type="submit">
+            <div class="group-11169">
+              <div class="rectangle-3"></div>
+              <div class="submit">Submit</div>
+            </div>
+          </button>
+          <div class="email">
+            <div class="rectangle-6"></div>
+          </div>
+          <div class="password">
+            <div class="rectangle-62"></div>
+          </div>
+        </div>
+        <div class="password2">
+          <label for="password2">Password</label>
+          <input type="password" id="password2" name="password2" required>
+        </div>
+        <div class="user-id">
+          <label for="user-id">User ID</label>
+          <input type="text" id="user-id" name="user-id" required>
+        </div>  
+        </form>
+      </div>
+      <div class="frame-427319727">
+        <div class="frame-427319728">
+          <div class="email2">
+            <div class="rectangle-6"></div>
+            <div class="_5644"><% user1.name %></div>
+          </div>
+          <div class="ellipse-776"></div>
+          <div class="_1">1</div>
+        </div>
+        <div class="frame-427319729">
+          <div class="email2">
+            <div class="rectangle-6"></div>
+            <div class="_5645"><% user2.name %></div>
+          </div>
+          <div class="ellipse-776"></div>
+          <div class="_2">2</div>
+        </div>
+        <div class="group-11385">
+          <div class="view-user">View User</div>
+        </div>
+        <button onClick="showTable()"> 
+        <div class="frame-427319747">
+          <div class="view">View</div>
+        </div>
+        </button>
+      </div>
+    </div>
+    <script>
+      function showTable() {
+            window.location.href = '/show-table';
+        }
+    </script>
+  </body>
+</html>

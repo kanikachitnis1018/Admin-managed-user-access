@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./vars.css" />
+    <link rel="stylesheet" href="../../public/styles/show-table.css" />
+
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div class="frame-427319726">
+        <div class="group-48096340">
+          <div class="frame-427319731">
+            <div class="user-id">User Id</div>
+          </div>
+          <div class="frame-427319732">
+            <div class="name">Name</div>
+          </div>
+          <div class="frame-427319733">
+            <div class="photo">Photo</div>
+          </div>
+          <div class="frame-427319734">
+            <div class="action">Action</div>
+          </div>
+          <% users.forEach(user => { %>        
+          <div class="frame-427319735">
+            <div class="_5644"><%= user.user-id %></div>
+          </div>
+          <div class="frame-427319736">
+            <div class="ramesh-kumar"><%= user.name %></div>
+          </div>
+          <div class="frame-427319737">
+            <% if (user.croppedImage && user.croppedImage.length > 0) { %>
+                <img src="data:image/png;base64,<%= user.croppedImage.toString('base64') %>" alt="Cropped Image">
+            <% } else { %>
+                <p>No image available</p>
+            <% } %>
+          </div>
+          <div class="frame-427319738">
+            <div class="frame-427319744">
+              <div class="delete">Delete</div>
+            </div>
+          </div>
+          <% });
+      </div>
+    </div>
+  </body>
+</html>
+
+<% if (user.croppedImage && user.croppedImage.length > 0) { %>
+        <img src="data:image/png;base64,<%= user.croppedImage.toString('base64') %>" alt="Cropped Image">
+    <% } else { %>
+        <p>No image available</p>
+    <% } %>
